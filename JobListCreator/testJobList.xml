@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ArrayOfPositionListItem>
+   <PositionListItem>
+      <DoseCorrection>0.85</DoseCorrection>
+      <FocusCorrectionUM>0</FocusCorrectionUM>
+      <GroupName />
+      <ExposureMode>0</ExposureMode>
+      <LocalAlignment>None</LocalAlignment>
+      <AlignmentPointdXMM>0</AlignmentPointdXMM>
+      <AlignmentPointdYMM>0</AlignmentPointdYMM>
+      <RealTimeCorrectFocus>false</RealTimeCorrectFocus>
+      <RoundVectorCoordinatesToGrid>true</RoundVectorCoordinatesToGrid>
+      <BeamName>0.4um</BeamName>
+      <CascadeLocalAlignmentToFollowingJobs>false</CascadeLocalAlignmentToFollowingJobs>
+      <FocusLockGroup>2</FocusLockGroup>
+      <VectorFileOpeningProgressPercent>0</VectorFileOpeningProgressPercent>
+      <CancelCIFParsing>false</CancelCIFParsing>
+      <MultipassOrder>2</MultipassOrder>
+      <StitchingDoseCorrectionPercent>0</StitchingDoseCorrectionPercent>
+      <LightsourceName>385nm</LightsourceName>
+      <Quality>2</Quality>
+      <InvertExposure>false</InvertExposure>
+      <EnableStitchingOverlap>true</EnableStitchingOverlap>
+      <X>0</X>
+      <Y>0</Y>
+      <LayerIndex>1</LayerIndex>
+      <RealTimeFocusCorrectionSelection>Fastest</RealTimeFocusCorrectionSelection>
+      <Name>DMO test chip single v3 Layer 0.cif</Name>
+      <FolderName>C:\Users\Jung-WeiLiao\OneDrive - Durham Magneto Optics Ltd\Document\Qt\Drawing mode\JobListCreator\</FolderName>
+   </PositionListItem>
+</ArrayOfPositionListItem>
