@@ -19,8 +19,11 @@ class Widget(QWidget):
         #Disable the start drawing button and the Ready for exposures button.
         self.ui.pushButton_StartDrawing.setEnabled(False)
         self.ui.pushButton_ReadyForExposures.setEnabled(False)
+        self.ui.pushButton_StartTheExposure.setEnabled(False)
         #Disable the line edit for the output image pixel size
         self.ui.lineEdit_PixelSizeUM.setEnabled(False)
+        self.ui.lineEdit_Dose.setEnabled(False)
+        self.ui.lineEdit_Focus.setEnabled(False)
         #Connect the button to the functions
         #Start a connection button
         self.ui.pushButtonMW3Connect.clicked.connect(self.estabilishAConnection)
@@ -28,6 +31,8 @@ class Widget(QWidget):
         self.ui.pushButton_StartDrawing.clicked.connect(self.outputImageAndDrawing)
         #Connect the ready for exposure button
         self.ui.pushButton_ReadyForExposures.clicked.connect(self.readyForExposures)
+        #Connect the start the exposure button
+        self.ui.pushButton_StartTheExposure.clicked.connect(self.startExposures)
 
         #Initial the global parameter
         self.currentStatus = ''
@@ -88,8 +93,11 @@ class Widget(QWidget):
         #Disable the Start drawing button. Enable the Ready for exposures button.
         self.ui.pushButton_StartDrawing.setEnabled(False)
         self.ui.pushButton_ReadyForExposures.setEnabled(True)
+        self.ui.pushButton_StartTheExposure.setEnabled(False)
         #Disable the pixel size input
         self.ui.lineEdit_PixelSizeUM.setEnabled(False)
+        self.ui.lineEdit_Dose.setEnabled(False)
+        self.ui.lineEdit_Focus.setEnabled(False)
 
     @Slot()
     def readyForExposures(self):
@@ -119,11 +127,36 @@ class Widget(QWidget):
         #Reset the UI buttons
         self.ui.pushButton_ReadyForExposures.setEnabled(False)
         self.ui.pushButton_StartDrawing.setEnabled(True)
-        self.ui.lineEdit_PixelSizeUM.setEnabled(True)        
+        self.ui.lineEdit_PixelSizeUM.setEnabled(True)
+        self.ui.pushButton_StartTheExposure.setEnabled(True)
+        self.ui.lineEdit_Dose.setEnabled(True)
+        self.ui.lineEdit_Focus.setEnabled(True)
+    
+    @Slot()
+    def startExposures(self):
+        #Go go the Expose panel
+        self.newConnection.sendACommand('ShowExpose()')
+        #Disable the VMA
+        self.newConnection.sendACommand('VMAOff()')
+        #Set the dose and focus correction
+        userInputDose = float(self.ui.lineEdit_Dose.text())
+        userInputFocusCorrection = float(self.ui.lineEdit_Focus.text())
+        self.newConnection.sendACommand('ResistSensitivity({})'.format(userInputDose))
+        self.newConnection.sendACommand('GlobalFocusCorrection({})'.format(userInputFocusCorrection))
+        #Start the exposure
+        self.newConnection.sendACommand('StartExposure()')
+        #Reset the UI
+        self.ui.pushButton_StartTheExposure.setEnabled(False)
+        self.ui.lineEdit_Dose.setEnabled(False)
+        self.ui.lineEdit_Focus.setEnabled(False)
+
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
     widget = Widget()
     widget.show()
+    #Move the widget to the bottom left of the monitor position
+    widget.move(10,650)
+    
 
     sys.exit(app.exec())

@@ -93,44 +93,42 @@
    <property name="title">
     <string>Drawing</string>
    </property>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>141</width>
-      <height>31</height>
+      <width>151</width>
+      <height>56</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
      <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Pixel size (um)</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Pixel size (um)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_PixelSizeUM">
+         <property name="text">
+          <string>1.0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_PixelSizeUM">
+      <widget class="QPushButton" name="pushButton_StartDrawing">
        <property name="text">
-        <string>1.0</string>
+        <string>Start drawing!</string>
        </property>
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QPushButton" name="pushButton_StartDrawing">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>141</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start drawing!</string>
-    </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">
@@ -148,9 +146,9 @@
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>30</y>
-      <width>141</width>
+      <width>161</width>
       <height>114</height>
      </rect>
     </property>

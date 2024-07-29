@@ -63,35 +63,42 @@ class Ui_Widget(object):
         self.groupBox_2 = QGroupBox(Widget)
         self.groupBox_2.setObjectName(u"groupBox_2")
         self.groupBox_2.setGeometry(QRect(10, 120, 161, 91))
-        self.layoutWidget1 = QWidget(self.groupBox_2)
-        self.layoutWidget1.setObjectName(u"layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(10, 30, 141, 31))
-        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget1)
+        self.widget = QWidget(self.groupBox_2)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(10, 30, 151, 56))
+        self.verticalLayout_5 = QVBoxLayout(self.widget)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.label_2 = QLabel(self.layoutWidget1)
+        self.label_2 = QLabel(self.widget)
         self.label_2.setObjectName(u"label_2")
 
         self.horizontalLayout_2.addWidget(self.label_2)
 
-        self.lineEdit_PixelSizeUM = QLineEdit(self.layoutWidget1)
+        self.lineEdit_PixelSizeUM = QLineEdit(self.widget)
         self.lineEdit_PixelSizeUM.setObjectName(u"lineEdit_PixelSizeUM")
 
         self.horizontalLayout_2.addWidget(self.lineEdit_PixelSizeUM)
 
-        self.pushButton_StartDrawing = QPushButton(self.groupBox_2)
+
+        self.verticalLayout_5.addLayout(self.horizontalLayout_2)
+
+        self.pushButton_StartDrawing = QPushButton(self.widget)
         self.pushButton_StartDrawing.setObjectName(u"pushButton_StartDrawing")
-        self.pushButton_StartDrawing.setGeometry(QRect(10, 60, 141, 24))
+
+        self.verticalLayout_5.addWidget(self.pushButton_StartDrawing)
+
         self.groupBox_3 = QGroupBox(Widget)
         self.groupBox_3.setObjectName(u"groupBox_3")
         self.groupBox_3.setGeometry(QRect(11, 216, 161, 151))
-        self.widget = QWidget(self.groupBox_3)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 30, 141, 114))
-        self.verticalLayout_4 = QVBoxLayout(self.widget)
+        self.widget1 = QWidget(self.groupBox_3)
+        self.widget1.setObjectName(u"widget1")
+        self.widget1.setGeometry(QRect(0, 30, 161, 114))
+        self.verticalLayout_4 = QVBoxLayout(self.widget1)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.pushButton_ReadyForExposures = QPushButton(self.widget)
+        self.pushButton_ReadyForExposures = QPushButton(self.widget1)
         self.pushButton_ReadyForExposures.setObjectName(u"pushButton_ReadyForExposures")
         sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum)
         sizePolicy1.setHorizontalStretch(0)
@@ -105,12 +112,12 @@ class Ui_Widget(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.verticalLayout_3 = QVBoxLayout()
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.label_3 = QLabel(self.widget)
+        self.label_3 = QLabel(self.widget1)
         self.label_3.setObjectName(u"label_3")
 
         self.verticalLayout_3.addWidget(self.label_3)
 
-        self.label_4 = QLabel(self.widget)
+        self.label_4 = QLabel(self.widget1)
         self.label_4.setObjectName(u"label_4")
 
         self.verticalLayout_3.addWidget(self.label_4)
@@ -120,12 +127,12 @@ class Ui_Widget(object):
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.lineEdit_Dose = QLineEdit(self.widget)
+        self.lineEdit_Dose = QLineEdit(self.widget1)
         self.lineEdit_Dose.setObjectName(u"lineEdit_Dose")
 
         self.verticalLayout_2.addWidget(self.lineEdit_Dose)
 
-        self.lineEdit_Focus = QLineEdit(self.widget)
+        self.lineEdit_Focus = QLineEdit(self.widget1)
         self.lineEdit_Focus.setObjectName(u"lineEdit_Focus")
 
         self.verticalLayout_2.addWidget(self.lineEdit_Focus)
@@ -136,7 +143,7 @@ class Ui_Widget(object):
 
         self.verticalLayout_4.addLayout(self.horizontalLayout_3)
 
-        self.pushButton_StartTheExposure = QPushButton(self.widget)
+        self.pushButton_StartTheExposure = QPushButton(self.widget1)
         self.pushButton_StartTheExposure.setObjectName(u"pushButton_StartTheExposure")
         sizePolicy1.setHeightForWidth(self.pushButton_StartTheExposure.sizePolicy().hasHeightForWidth())
         self.pushButton_StartTheExposure.setSizePolicy(sizePolicy1)

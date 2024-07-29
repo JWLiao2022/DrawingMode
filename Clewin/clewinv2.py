@@ -15,7 +15,14 @@ class clsClewinAutomation(QThread):
     
     def newDrawing(self, outputImageFileFullPath, outputImagePixelSize):
         self.clewin = win32com.client.Dispatch("CleWin.Application")
+        
+        self.clewin.Visible = True
+
+        #Set the Clewin window position
+        self.clewin.WindowPos(200, 0, 1600, 1075)
+        
         self.clewin.FileNew()
+
         #Find the image centre position
         im = Image.open(outputImageFileFullPath)
         imageSizeW, imageSizeH = im.size
@@ -24,7 +31,7 @@ class clsClewinAutomation(QThread):
         self.clewin.LoadBackgroundImage(outputImageFileFullPath, topLeftImagePositionXUM, topLeftImagePositionYUM, outputImagePixelSize)
         self.clewin.ViewZoomAll()
 
-        self.clewin.Visible = True
+        
     
     def saveFile(self, outputCIFFileFullPath):
         self.clewin.SaveAs(outputCIFFileFullPath, 1)
